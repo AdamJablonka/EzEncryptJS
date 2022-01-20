@@ -3,6 +3,15 @@
   margin: 0;
 }
 
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
 #key {
   border: 1px solid red;
   padding: 5px;
@@ -20,6 +29,7 @@
   font-size: 25px;
 }
 .inputArea {
+  animation: slideInFromTop 5s;
   display: grid;
   place-items: center;
 }
@@ -40,7 +50,6 @@ body {
 }
 
 #message {
-  line-height: 2em;
   position: relative;
   justify-content: center;
   width: 50%;
