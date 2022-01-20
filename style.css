@@ -1,0 +1,79 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+#key {
+  border: 1px solid red;
+  padding: 5px;
+  width: 10%;
+  font-size: 25px;
+  transition: 1s;
+}
+
+#key:focus {
+  width: 50%;
+}
+
+#message {
+  padding: 5px;
+  font-size: 25px;
+}
+.inputArea {
+  animation: slideInFromTop 5s;
+  display: grid;
+  place-items: center;
+}
+
+p {
+  margin: 20px;
+  color: white;
+  font-size: 20px;
+}
+
+h1 {
+  color: white;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: rgb(39, 39, 58);
+}
+
+#message {
+  line-height: 2em;
+  position: relative;
+  justify-content: center;
+  width: 50%;
+}
+
+input[type="text"] {
+  border: 2px solid rgb(255, 0, 0);
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px;
+
+  font-size: 20px;
+}
+
+#output {
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: 25px;
+  color: white;
+  display: grid;
+  justify-content: center;
+}
