@@ -1,14 +1,12 @@
 document.getElementById("encrypt").addEventListener("click", encrypt, false);
 document.getElementById("decrypt").addEventListener("click", decrypt, false);
 
-
-  // The way this encryption program works, is by making any keyinput the size of the message.
-function keyFormat(key){
+// keyformat will transform any key inputted to match the length of the message that was inputted
+const keyFormat = (key) => {
     key = document.getElementById("key").value.toUpperCase();
     let message = document.getElementById("message").value;
     result = '';
-
-    if(key.length == message.length){
+    if (key.length == message.length){
         return key;
     }
     else{
@@ -20,28 +18,26 @@ function keyFormat(key){
     }
 }
 
-function encrypt(){
+const encrypt = () => {
     let key = document.getElementById("key").value;
     let message = document.getElementById("message").value;
 
-    if(key === ""){
+    if (key === "")
         document.getElementById("output").innerText = "Please Enter a Key.";
-    }
-    if(message === ""){
+    if (message === "")
         document.getElementById("output").innerText = "Please Enter a Message.";
-    }
-
     key = (keyFormat(key));
     let result = '';
 
-    //Converts string to ASCII Array. Uses Push to insert into stack.
+    //converts string to ASCII array, uses push to insert into stack.
     for(let i = 0; i < message.length; i++){
-        if((message[i] == " ")) 
+        if ((message[i] == " ")){
             result += " ";
-        else if(message[i].charCodeAt() == 10){
+        }
+        else if (message[i].charCodeAt() == 10){
             result += String.fromCharCode(10);
         }
-        else if(((message[i].charCodeAt()) + (key[i].charCodeAt() - 64)) <= 126){
+        else if (((message[i].charCodeAt()) + (key[i].charCodeAt() - 64)) <= 126){
             temp = (message[i].charCodeAt()) + (key[i].charCodeAt() - 64);
             result += String.fromCharCode(temp);
         }
@@ -53,16 +49,14 @@ function encrypt(){
     document.getElementById("output").innerText = result;
 }
 
-
-function decrypt()
-{
+const decrypt = () => {
     let key = document.getElementById("key").value;
-    if(key === ""){
+    if (key === ""){
         document.getElementById("output").innerText = "Please Enter a Key.";
     }
     
     let message = document.getElementById("message").value;
-    if(message === ""){
+    if (message === ""){
         document.getElementById("output").innerText = "Please Enter a Message.";
     }
    
@@ -70,13 +64,13 @@ function decrypt()
     let result = '';
 
     //Converts string to ASCII Array. Uses Push to insert into stack.
-    for(let i = 0; i < message.length; i++){
+    for (let i = 0; i < message.length; i++){
         if((message[i] == " ")) 
             result += " ";
-        else if(message[i].charCodeAt() == 10){
+        else if (message[i].charCodeAt() == 10){
             result += String.fromCharCode(10);
         }
-        else if(((message[i].charCodeAt()) - (key[i].charCodeAt() - 64)) >= 32){
+        else if (((message[i].charCodeAt()) - (key[i].charCodeAt() - 64)) >= 32){
             temp = (message[i].charCodeAt()) - (key[i].charCodeAt() - 64);
             result += String.fromCharCode(temp);
         }
@@ -87,4 +81,3 @@ function decrypt()
     }
     document.getElementById("output").innerText = result;
 }
-
